@@ -9,7 +9,7 @@ container = st.container()
 container.write("This tool makes it easier and simplier to query Google's Knowledge Graph using Google's Knowledge Graph API.")
 container.write("Before using the tool, retrieve an API key through the Google Cloud platform. Find a quicklink in the \"?\" next to the API Key input box.")
 
-creator = "Created by " + <a href="https://www.linkedin.com/in/tyler-rouwhorst/">Tyler Rouwhorst</a>
+creator = <a href="https://www.linkedin.com/in/tyler-rouwhorst/">Tyler Rouwhorst</a>
 container.write(creator)
 
 key = container.text_input("Input API Key Below:", help="https://developers.google.com/knowledge-graph/how-tos/authorizing")
