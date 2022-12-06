@@ -2,7 +2,10 @@ import pandas as pd
 import streamlit as st
 from advertools import knowledge_graph
 
+st.title("Query Google Kowledge Graph")
+
 container = st.container()
+container.write("This tool makes it easier and simplier to query Google Knowledge GRaph using Google's Knowledge Graph API. Before using the tool, retrieve an API key through the Google Cloud platform. Find a quicklink in the "?" next to the query input box.   
 key = container.text_input("Input API Key Below:", help="https://developers.google.com/knowledge-graph/how-tos/authorizing")
 query = container.text_input("Input Query Below")
 
