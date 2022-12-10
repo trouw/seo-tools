@@ -25,6 +25,7 @@ options = st.multiselect(
 csv = None
 
 if st.button("Start Query"):
+    print(entity_id)
     try:
         if entity_id != None:
             kg_df = knowledge_graph(key=key, query=query, ids=entity_id)
