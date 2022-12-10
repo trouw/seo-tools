@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 from advertools import knowledge_graph
 
-st.title("Query Google's Kowledge Graph")
+st.title("Query Google's Knowledge Graph")
 
 container = st.container()
 
@@ -12,7 +12,11 @@ container.write("Before using the tool, retrieve an API key through the Google C
 container.write("Created by [Tyler Rouwhorst](https://www.linkedin.com/in/tyler-rouwhorst/)")
 
 key = container.text_input("Input API Key Below:", help="https://developers.google.com/knowledge-graph/how-tos/authorizing")
+
+container.write("Query the Knowledge graph using a Query or Entity ID. The fields can be inputed together or one at a time")
+
 query = container.text_input("Input Query Below")
+entity_id = container.text_input("Input Entity ID")
 
 options = st.multiselect(
     'Select Elements for Export',
@@ -22,7 +26,7 @@ csv = None
 
 if st.button("Start Query"):
     try:
-        kg_df = knowledge_graph(key=key, query=query)
+        kg_df = knowledge_graph(key=key, query=query, ids=entity_id)
         if kg_df.empty: 
             None
         else:
