@@ -35,7 +35,7 @@ if st.button("Start Query"):
                 user_df = kg_df[options]
                 csv = user_df.to_csv().encode('utf-8')
         else:
-            kg_df = knowledge_graph(key=key, query=query, ids=entity_id)
+            kg_df = knowledge_graph(key=key, query=query)
             if kg_df.empty: 
                 None
             else:
