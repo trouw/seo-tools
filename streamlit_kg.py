@@ -26,7 +26,7 @@ csv = None
 
 if st.button("Start Query"):
     try:
-        if entity_id != None
+        if entity_id != None:
             kg_df = knowledge_graph(key=key, query=query, ids=entity_id)
             if kg_df.empty: 
                 None
