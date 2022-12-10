@@ -26,22 +26,13 @@ csv = None
 
 if st.button("Start Query"):
     try:
-        if entity_id != None:
-            kg_df = knowledge_graph(key=key, query=query, ids=entity_id)
-            if kg_df.empty: 
-                None
-            else:
-                kg_df.rename(columns ={'query':'Query','resultScore':'Result Score','result.name':'Name','result.url':'Result URL','result.detailedDescription.url':'Detailed Description Source URL','result.detailedDescription.articleBody':'Detailed Description','result.@type':'Schema.org Type','result.image.url':'Image URL','result.description':'Description','result.@id':'Result ID'}, inplace=True)
-                user_df = kg_df[options]
-                csv = user_df.to_csv().encode('utf-8')
+        kg_df = knowledge_graph(key=key, query=query, ids=entity_id)
+        if kg_df.empty: 
+            None
         else:
-            kg_df = knowledge_graph(key=key, query=query)
-            if kg_df.empty: 
-                None
-            else:
-                kg_df.rename(columns ={'query':'Query','resultScore':'Result Score','result.name':'Name','result.url':'Result URL','result.detailedDescription.url':'Detailed Description Source URL','result.detailedDescription.articleBody':'Detailed Description','result.@type':'Schema.org Type','result.image.url':'Image URL','result.description':'Description','result.@id':'Result ID'}, inplace=True)
-                user_df = kg_df[options]
-                csv = user_df.to_csv().encode('utf-8')
+            kg_df.rename(columns ={'query':'Query','resultScore':'Result Score','result.name':'Name','result.url':'Result URL','result.detailedDescription.url':'Detailed Description Source URL','result.detailedDescription.articleBody':'Detailed Description','result.@type':'Schema.org Type','result.image.url':'Image URL','result.description':'Description','result.@id':'Result ID'}, inplace=True)
+            user_df = kg_df[options]
+            csv = user_df.to_csv().encode('utf-8')
     except:
         st.write("Sorry, there are no results for this query")
 
