@@ -16,7 +16,7 @@ key = container.text_input("Input API Key Below:", help="https://developers.goog
 container.write("Query the Knowledge graph using a Query or Entity ID. The fields can be inputed together or one at a time")
 
 query = container.text_input("Input Query Below")
-entity_id = container.text_input("Input Entity ID")
+entity_id = container.text_input("Input Entity ID", value="None")
 
 options = st.multiselect(
     'Select Elements for Export',
@@ -25,7 +25,6 @@ options = st.multiselect(
 csv = None
 
 if st.button("Start Query"):
-    print(entity_id)
     try:
         if entity_id != None:
             kg_df = knowledge_graph(key=key, query=query, ids=entity_id)
