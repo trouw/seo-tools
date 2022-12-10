@@ -16,6 +16,7 @@ key = container.text_input("Input API Key Below:", help="https://developers.goog
 container.write("Query the Knowledge graph using a Query or Entity ID. The fields can be inputed together or one at a time")
 
 query = container.text_input("Input Query Below")
+entity_id = None
 entity_id = container.text_input("Input Entity ID")
 
 options = st.multiselect(
